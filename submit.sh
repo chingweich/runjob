@@ -1,12 +1,20 @@
-#!/bin/bash
+#!/bin/tcsh
 
-rWindow=4.5
-for (( i=1; i<22; i=i+1 ))
-do
-in=$i
-infilename="root://grid71.phy.ncu.edu.tw//dpm/phy.ncu.edu.tw/home/cms/store/user/chchen/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/crab_DY_14TeV/141106_184757/0000/DY_$in.root"
+cd $1
+mkdir $4
+cp xAna_oot.C ./$4
+cp untuplizer.h ./$4
+cd $4
 
-#echo  "in=$in"
-#echo  "infilename=$infilename"
-#./runJob.csh $PWD $infilename $rWindow
-bsub -R "type=SLC6_64" -q 1nd $PWD/runJob.csh $PWD $infilename $rWindow
+setenv SCRAM_ARCH slc6_amd64_gcc481; eval `scramv1 runtime -csh`
+setenv X509_USER_PROXY $HOME/private/grid.proxy
+
+#echo  "runJob 2=$2"
+#echo  "runjob 3=$3"
+
+root -q -b xAna_oot.C++\(\"$2\",-1,$3\)
+
+cd ..
+cp ./$4/*.root . 
+rm -rf ./$4 
+
