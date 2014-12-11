@@ -1,15 +1,22 @@
 #!/bin/bash
-
-rWindow=4.5
-for (( i=1; i<22; i=i+1 ))
+rWindow=4.
+file=1.txt 
+seq=1
+while read line
 do
-in=$i
-infilename="root://grid71.phy.ncu.edu.tw//dpm/phy.ncu.edu.tw/home/cms/store/user/chchen/DYToMuMu_M-20_TuneZ2star_14TeV-pythia6-tauola/crab_DY_14TeV/141106_184757/0000/DY_$in.root"
+    lines[$seq]=$line
+    ((seq++))
+done < $file
+for (( i=1; i<=${#lines[@]}; i=i+1 ))
+do
+
+
 
 #echo  "in=$in"
 #echo  "infilename=$infilename"
 #./runJob.csh $PWD $infilename $rWindow
-bsub -R "type=SLC6_64" -q 1nd $PWD/runJob.csh $PWD $infilename $rWindow $i
+bsub -R "type=SLC6_64" -q 1nd $PWD/runJob.csh $PWD $ ${lines[$i]} $rWindow $i 
+done
 
 
 
