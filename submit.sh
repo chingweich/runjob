@@ -1,5 +1,5 @@
 #!/bin/bash
-rWindow=4.
+rWindow=3
 file=1.txt 
 seq=1
 while read line
