@@ -15,7 +15,7 @@ newDir="$i"of"$rWindow"
 #echo  "in=$in"
 #echo  "infilename=$infilename"
 #./runJob.csh $PWD $infilename $rWindow
-bsub -R "type=SLC6_64" -q 1nd $PWD/runJob.csh $PWD $ ${lines[$i]} $rWindow newDir="$i"of"$rWindow"
+bsub -R "type=SLC6_64" -q 1nd $PWD/runJob.csh $PWD  ${lines[$i]} $rWindow $newDir="$i"of"$rWindow"
 done
 
 
