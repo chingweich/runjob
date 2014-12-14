@@ -6,8 +6,8 @@ cp xAna_oot.C ./$4
 cp untuplizer.h ./$4
 cd $4
 
-setenv SCRAM_ARCH slc6_amd64_gcc481; eval `scramv1 runtime -csh`
-setenv X509_USER_PROXY $HOME/private/grid.proxy
+#setenv SCRAM_ARCH slc6_amd64_gcc481; eval `scramv1 runtime -csh`
+#setenv X509_USER_PROXY $HOME/private/grid.proxy
 
 #echo  "runJob 2=$2"
 #echo  "runjob 3=$3"
