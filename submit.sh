@@ -5,7 +5,7 @@ b=$((3*${i}))
 c=$(echo "scale=1;$b/2"|bc)
 rWindow=$(echo "scale=1;$c+2"|bc)
 
-file=1.txt 
+file=minbias.txt 
 seq=1
 while read line
 do
