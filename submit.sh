@@ -1,9 +1,6 @@
 #!/bin/bas
-for (( i=1; i<=7; i=i+1 ))
-do
-b=$((3*${i}))
-c=$(echo "scale=1;$b/2"|bc)
-rWindow=$(echo "scale=1;$c+2"|bc)
+
+rWindow=$1
 
 file=minbias.txt 
 seq=1
@@ -23,4 +20,4 @@ newDir="$i"of"$rWindow"
 bsub -R "type=SLC6_64" -q 1nd $PWD/runJob.csh $PWD  ${lines[$i]} $rWindow $newDir
 done
 
-done
+
